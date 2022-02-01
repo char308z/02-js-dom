@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="border">
+      <h1>Titel</h1>
+    </header>
+    <main>
+      <h2>Undertitel</h2>
+      <section id="section" class="flex">
+        <article id="art1" class="border">
+          <img src="b1.jpg" alt="" />
+          <h3>Artikel1</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+            voluptate dolore nemo dolor tempore iusto aliquam, itaque alias esse
+            nostrum vero, maiores fuga doloribus sed.
+          </p>
+        </article>
+        <article id="art2" class="border">
+          <img src="b2.jpg" alt="" />
+          <h3>Artikel2</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+            voluptate dolore nemo dolor tempore iusto aliquam, itaque alias esse
+            nostrum vero, maiores fuga doloribus sed.
+          </p>
+        </article>
+      </section>
+      <footer class="border">
+        <p>This is the footer</p>
+      </footer>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", start);
+      console.log("start er gennemført");
+
+      function start() {
+        const overskrift = document.querySelector("h1");
+        overskrift.textContent = "Noget helt andet";
+        console.log(overskrift.textContent);
+
+        const underoverskrift = document.querySelector("h2");
+        underoverskrift.textContent;
+        console.log(underoverskrift.textContent);
+
+        //   const art1 = document.querySelector("article:first-of-type");
+        //   art1.textContent;
+        //   console.log(art1.textContent);
+
+        const subTArt1 = document.querySelector("article:first-of-type h3");
+        subTArt1.textContent = "Første artikel nummer 1";
+        console.log(subTArt1.textContent);
+
+        const img1 = document.querySelector("article:first-of-type img");
+        console.log(img1);
+
+        //   const art2 = document.querySelector("article:nth-child(2)");
+        //   art2.textContent;
+        //   console.log(art2.textContent);
+
+        const subTArt2 = document.querySelector("article:nth-child(2) h3");
+        subTArt2.innerHTML = "<h3>Artikel nummer 2</h3>";
+        console.log(subTArt2.textContent);
+
+        const img2 = document.querySelector("article:nth-child(2) img");
+        img2.src = " b1.jpg";
+        console.log(img2);
+
+        //   lav et helt nyt element via createElement og appendChild
+        let section = document.querySelector("#section");
+
+        let h2 = document.createElement("h2");
+        let nyoverskrift = document.createTextNode("Min nye overskrift");
+        h2.appendChild(nyoverskrift);
+
+        let nyP = document.createElement("p");
+        let pIndhold = document.createTextNode("min nye paragraf, wuuuhuuu");
+        nyP.appendChild(pIndhold);
+
+        let nyimg = document.createElement("img");
+        nyimg.src = "b2.jpg";
+
+        section.appendChild(h2);
+        section.appendChild(nyP);
+        section.appendChild(nyimg);
+
+        //   footer
+        const footer = document.querySelector("footer");
+        footer.textContent;
+        console.log(footer.textContent);
+
+        // skift billede1 ud når der klikkes
+
+        img1.addEventListener("click", nytBillede);
+        function nytBillede() {
+          let myRand = Math.floor(Math.random() * 10);
+          img1.src = "https://placeimg.com/640/480/arch?t=" + myRand;
+          console.log("skiftbillede");
+        }
+      }
+    </script>
+  </body>
+</html>
